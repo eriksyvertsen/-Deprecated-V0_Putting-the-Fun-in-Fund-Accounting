@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Equity Fund Accounting Training</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Private Equity Fund Accounting Training</h1>
+
+        <!-- Navigation Bar to switch between modules -->
+        <div class="navigation">
+            <button onclick="showModule('module1')">Module 1: Overview of Fund Structures</button>
+            <button onclick="showModule('module2')">Module 2: Fund Accounting Basics</button>
+            <button onclick="showModule('module3')">Module 3: Investor Reporting & Compliance</button>
+            <button onclick="showModule('module4')">Module 4: Waterfall Distribution & Carried Interest</button>
+            <button onclick="showModule('module5')">Module 5: Advanced Accounting Topics</button>
+            <button onclick="showModule('module6')">Module 6: Taxation & Regulatory Compliance</button>
+        </div>
+
+        <!-- Module 1: Overview of Fund Structures -->
+        <div id="module1" class="module">
+            <h2>Module 1: Overview of Private Equity Fund Structures</h2>
+            <p>A private equity fund is typically structured as a limited partnership with two main parties:</p>
+            <ul>
+                <li><strong>General Partners (GPs)</strong>: They manage the fund and are responsible for investment decisions.</li>
+                <li><strong>Limited Partners (LPs)</strong>: They are the investors who contribute capital but have limited liability.</li>
+            </ul>
+
+            <h3>Drag and Drop Simulation</h3>
+            <div id="dragDropStructure">
+                <p>Drag and drop to complete the private equity fund structure:</p>
+                <div class="drag-container">
+                    <div class="drop-zone" id="gpZone">General Partners</div>
+                    <div class="drop-zone" id="lpZone">Limited Partners</div>
+                </div>
+                <div class="drag-elements">
+                    <div draggable="true" class="drag-item" id="gpDrag">GP</div>
+                    <div draggable="true" class="drag-item" id="lpDrag">LP</div>
+                </div>
+            </div>
+            <div id="dragDropResult"></div>
+        </div>
+
+        <!-- Module 2: Fund Accounting Basics -->
+        <div id="module2" class="module" style="display: none;">
+            <h2>Module 2: Fund Accounting Basics</h2>
+
+            <h3>Net Asset Value (NAV) Calculation</h3>
+            <form id="navForm">
+                <label for="totalAssets">Total Assets ($):</label>
+                <input type="number" id="totalAssets" placeholder="Enter total assets"><br>
+
+                <label for="totalLiabilities">Total Liabilities ($):</label>
+                <input type="number" id="totalLiabilities" placeholder="Enter total liabilities"><br>
+
+                <label for="capitalCalls">Capital Calls ($):</label>
+                <input type="number" id="capitalCalls" placeholder="Enter capital calls"><br>
+
+                <label for="distributions">Distributions ($):</label>
+                <input type="number" id="distributions" placeholder="Enter distributions"><br>
+
+                <button type="button" onclick="calculateNAV()">Calculate NAV</button>
+            </form>
+            <div id="navResult"></div>
+
+            <h3>Capital Call Simulation</h3>
+            <form id="capitalCallForm">
+                <label for="lp1">LP1 Commitment ($):</label>
+                <input type="number" id="lp1" placeholder="Enter LP1 commitment"><br>
+
+                <label for="lp2">LP2 Commitment ($):</label>
+                <input type="number" id="lp2" placeholder="Enter LP2 commitment"><br>
+
+                <label for="lp3">LP3 Commitment ($):</label>
+                <input type="number" id="lp3" placeholder="Enter LP3 commitment"><br>
+
+                <label for="totalCapitalCall">Total Capital Call Needed ($):</label>
+                <input type="number" id="totalCapitalCall" placeholder="Enter total capital call amount"><br>
+
+                <button type="button" onclick="calculateCapitalCall()">Calculate Capital Calls</button>
+            </form>
+            <div id="capitalCallResult"></div>
+        </div>
+
+        <!-- Module 3: Investor Reporting & Compliance -->
+        <div id="module3" class="module" style="display: none;">
+            <h2>Module 3: Investor Reporting & Compliance</h2>
+
+            <h3>Investor Report Review & Fee Calculation</h3>
+            <form id="feeCalculationForm">
+                <label for="navAmount">NAV ($):</label>
+                <input type="number" id="navAmount" placeholder="Enter NAV"><br>
+
+                <label for="managementFeeRate">Management Fee Rate (%):</label>
+                <input type="number" id="managementFeeRate" placeholder="Enter fee rate"><br>
+
+                <button type="button" onclick="calculateManagementFee()">Calculate Management Fee</button>
+            </form>
+            <div id="feeResult"></div>
+        </div>
+
+        <!-- Module 4: Waterfall Distribution & Carried Interest -->
+        <div id="module4" class="module" style="display: none;">
+            <h2>Module 4: Waterfall Distribution & Carried Interest</h2>
+
+            <h3>Waterfall Distribution Calculation</h3>
+            <form id="waterfallForm">
+                <label for="totalProfits">Total Profits ($):</label>
+                <input type="number" id="totalProfits" placeholder="Enter total profits"><br>
+
+                <label for="preferredReturn">Preferred Return Rate (%):</label>
+                <input type="number" id="preferredReturn" placeholder="Enter preferred return"><br>
+
+                <label for="gpCarry">GP Carry (%):</label>
+                <input type="number" id="gpCarry" placeholder="Enter GP carry"><br>
+
+                <button type="button" onclick="calculateWaterfall()">Calculate Waterfall</button>
+            </form>
+            <div id="waterfallResult"></div>
+        </div>
+
+        <!-- Module 5: Advanced Accounting Topics -->
+        <div id="module5" class="module" style="display: none;">
+            <h2>Module 5: Advanced Accounting Topics</h2>
+
+            <h3>Fair Value Adjustment Calculation</h3>
+            <form id="fairValueForm">
+                <label for="initialValuation">Initial Valuation ($):</label>
+                <input type="number" id="initialValuation" placeholder="Enter initial valuation"><br>
+
+                <label for="currentValuation">Current Valuation ($):</label>
+                <input type="number" id="currentValuation" placeholder="Enter current valuation"><br>
+
+                <button type="button" onclick="calculateFairValue()">Calculate Fair Value Adjustment</button>
+            </form>
+            <div id="fairValueResult"></div>
+        </div>
+
+        <!-- Module 6: Taxation & Regulatory Compliance -->
+        <div id="module6" class="module" style="display: none;">
+            <h2>Module 6: Taxation & Regulatory Compliance</h2>
+
+            <h3>Tax Filing Simulation</h3>
+            <form id="taxForm">
+                <label for="totalIncome">Total Income ($):</label>
+                <input type="number" id="totalIncome" placeholder="Enter total income"><br>
+
+                <label for="deductions">Deductions ($):</label>
+                <input type="number" id="deductions" placeholder="Enter deductions"><br>
+
+                <button type="button" onclick="calculateTaxableIncome()">Calculate Taxable Income</button>
+            </form>
+            <div id="taxResult"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
